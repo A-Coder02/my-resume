@@ -4,9 +4,9 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Arbaz Ansari",
   initials: "Arbaz",
-  url: "https://dillion.io",
-  location: "San Francisco, CA",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
+  url: "https://arbaz-dev.vercel.app/",
+  location: "Pune, India",
+  locationLink: "https://www.google.com/maps/place/pune",
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
   summary:
