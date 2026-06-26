@@ -17,11 +17,7 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <BlurFade delay={BLUR_FADE_DELAY * 0.5}>
         <div className="flex items-center gap-2 mb-2">
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="h-6 w-auto"
-          />
+          <img src="/logo.png" alt="Logo" className="h-6 w-auto" />
           <span className="text-sm font-semibold tracking-tight">
             {DATA.name}
           </span>
@@ -121,7 +117,10 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+          <i className="text-muted-foreground text-center pt-8 block">
+            Remains to add...
+          </i>
+          {/* <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
             {DATA.projects.map((project, id) => (
               <BlurFade
                 key={project.title}
@@ -140,7 +139,7 @@ export default function Page() {
                 />
               </BlurFade>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
       <section id="hackathons">
