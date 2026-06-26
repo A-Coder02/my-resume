@@ -15,6 +15,18 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
+      <BlurFade delay={BLUR_FADE_DELAY * 0.5}>
+        <div className="flex items-center gap-2 mb-2">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="h-6 w-auto"
+          />
+          <span className="text-sm font-semibold tracking-tight">
+            {DATA.name}
+          </span>
+        </div>
+      </BlurFade>
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">

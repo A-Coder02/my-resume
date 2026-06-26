@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  background-image: url("/bg.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 500px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 100%;
+  background-image: url("/bg-2.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 500px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: -1;
+}
+
 @layer base {
     :root {
       --background: 0 0% 100%;
