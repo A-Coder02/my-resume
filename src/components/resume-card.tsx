@@ -100,7 +100,11 @@ export const ResumeCard = ({
               }}
               className="mt-2 text-xs sm:text-sm"
             >
-              {description}
+              <div
+                className="prose prose-sm dark:prose-invert max-w-none [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-1 [&_a]:text-blue-500 [&_a]:underline"
+                onClick={(e) => e.stopPropagation()}
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
             </motion.div>
           )}
         </div>

@@ -2,35 +2,51 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Arbaz Ansari",
-  initials: "Arbaz",
-  url: "https://arbaz-dev.vercel.app/",
+  name: "Arbaj Ansari",
+  initials: "Arbaj",
+  url: "https://arbaj-dev.vercel.app/",
   location: "Pune, India",
   locationLink: "https://www.google.com/maps/place/pune",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Linkedin.",
+    "Full Stack Developer & Technical Lead. Building scalable products with React, Node.js, and modern tech. Passionate about clean code and shipping fast.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "Full Stack Developer and Technical Lead at Pronttera, leading development of AI-powered products including PayFace (facial recognition payment) and Rixura (medical imaging). Previously at 10Xers Labs and HTS, where I led frontend teams and built high-impact features for B2C platforms. Experienced with React, Next.js, Node.js, Vue.js, React Native, and modern web technologies. Passionate about clean code, mentoring developers, and building products that matter.",
   avatarUrl: "/me.png",
   skills: [
-    "React",
+    "ReactJS",
+    "React Native",
     "Next.js",
-    "Typescript",
+    "Vue.js",
+    "Redux",
+    "TypeScript",
+    "SASS/LESS",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Ant Design",
     "Node.js",
-    "Python",
-    "Go",
-    "Postgres",
-    "Docker",
-    "Kubernetes",
-    "Java",
-    "C++",
+    "NestJS",
+    "Supabase",
+    "Firebase",
+    "GHL (GoHighLevel)",
+    "MongoDB",
+    "Mongoose",
+    "PostgreSQL",
+    "Chrome Extension Development",
+    "WordPress",
+    "TensorFlow",
+    "Git",
+    "Figma",
+    "Cursor",
+    "Browser MCP",
+    "NotebookLM",
+    "JIRA",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "arbaj897ansari@gmail.com
+    email: "arbaj897ansari@gmail.com",
     tel: "+918975048440",
     social: {
       GitHub: {
@@ -42,7 +58,7 @@ export const DATA = {
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/arbazyansari/",
+        url: "https://www.linkedin.com/in/arbaj-dev/",
         icon: Icons.linkedin,
 
         navbar: true,
@@ -72,110 +88,94 @@ export const DATA = {
 
   work: [
     {
-      company: "Atomic Finance",
-      href: "https://atomic.finance",
+      company: "Pronttera",
+      href: "https://pronttera.com",
+      // badges: ["Part-time"],
+      location: "Pune, India",
+      title: "Technical Lead",
+      logoUrl: "/pronttera.png",
+      start: "Nov 2024",
+      end: "Present",
+      description:
+        "<ul><li><b>PayFace</b> – Built a facial recognition payment application and integrated TensorFlow for biometric face detection and authentication (<a href='http://payface.in/'>payface.in</a>).</li><li><b>Rixura</b> – Developed a DICOM Viewer for medical imaging using dwv-react, enabling visualization of radiology files in the browser (<a href='http://rixura.com/'>rixura.com</a>).</li><li><b>Frostiq</b> – Developed a cake order management product, streamlining orders and operations for bakery businesses.</li><li><b>FitStack</b> – Built a Gym Management application for managing memberships, schedules, and operations.</li></ul>",
+    },
+    {
+      company: "10Xers Labs",
+      href: "https://10xerslabs.com",
       badges: [],
       location: "Remote",
-      title: "Bitcoin Protocol Engineer",
-      logoUrl: "/atomic.png",
-      start: "May 2021",
-      end: "Oct 2022",
+      title: "Full Stack Engineer",
+      logoUrl: "/10xers.png",
+      start: "Jul 2025",
+      end: "Mar 2026",
       description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+        "<ul><li><b>GrowReach</b> – Built the GrowReach web app (<a href='https://growreach.app/'>growreach.app</a>) and its companion Chrome Extension (<a href='https://chromewebstore.google.com/detail/cifejbakemcfojncacbdakgkbhocglca'>Chrome Web Store</a>); leveraged Cursor with Figma MCP to accelerate UI development.</li><li><b>GrowEasy</b> – Implemented features and maintained a Salon Management application, contributing on the frontend side (<a href='https://groweasy.com/'>groweasy.com</a>).</li><li><b>Ajerly</b> – Integrated WASL feature including WASL status tracking and ongoing maintenance for a car rental application (<a href='https://ajerlycarrental.com/'>ajerlycarrental.com</a>).</li><li><b>Jasmine</b> – Developed a Vue.js-based trading application (<a href='https://www.jasminetrades.com/'>jasminetrades.com</a>), working on the trade order flow for a smooth and reliable trading experience.</li></ul>",
     },
     {
-      company: "Shopify",
+      company: "HTS",
+      href: "https://hts.com",
       badges: [],
-      href: "https://shopify.com",
-      location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/shopify.svg",
-      start: "January 2021",
-      end: "April 2021",
+      location: "Pune, India",
+      title: "Senior Software Developer",
+      logoUrl: "/hts.png",
+      start: "May 2023",
+      end: "Jun 2025",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+        "<ul><li>Led frontend development, enforced best practices, and optimized performance for scalable, high-quality applications.</li><li><b>MealPe</b> (<a href='https://mealpe.app/'>mealpe.app</a>) – Worked on a B2C SaaS food ordering and cafeteria management platform; built the restaurant application, super admin application, and a cross-platform mobile app in React Native for iOS and Android.</li><li>Cell Tower Surveillance – Built a real-time 3D monitoring system using Three.js for high-precision tracking; implemented Python scripting with YOLO, openMVG, and openMVS for computer vision and 3D reconstruction.</li><li>React + Tailwind Boilerplate – Cut development time by 30% with reusable components.</li><li>Figma-to-React Tool – Boosted UI performance by 50% with efficient rendering.</li></ul>",
     },
     {
-      company: "Nvidia",
-      href: "https://nvidia.com/",
+      company: "Vitesse Technologies",
+      href: "https://vitessetech.com",
       badges: [],
-      location: "Santa Clara, CA",
-      title: "Software Engineer",
-      logoUrl: "/nvidia.png",
-      start: "January 2020",
-      end: "April 2020",
+      location: "Pune, India",
+      title: "Full Stack Developer",
+      logoUrl: "/vitesse.png",
+      start: "Sep 2022",
+      end: "Mar 2023",
       description:
-        "Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
+        "<ul><li>UI/UX Development – Crafted intuitive interfaces for React & Node.js applications.</li><li>Reusable Component Library – Developed a Node.js library, cutting feature development time by 30%.</li></ul>",
     },
     {
-      company: "Splunk",
-      href: "https://splunk.com",
+      company: "APSIS Solutions",
+      href: "https://apsis.com",
       badges: [],
-      location: "San Jose, CA",
-      title: "Software Engineer",
-      logoUrl: "/splunk.svg",
-      start: "January 2019",
-      end: "April 2019",
+      location: "Pune, India",
+      title: "Associate Software Engineer",
+      logoUrl: "/apsis.png",
+      start: "Apr 2022",
+      end: "Aug 2022",
       description:
-        "Co-developed a prototype iOS app with another intern in Swift for the new Splunk Phantom security orchestration product (later publicly demoed and launched at .conf annual conference in Las Vegas). Implemented a realtime service for the iOS app in Django (Python) and C++; serialized data using protobufs transmitted over gRPC resulting in an approximate 500% increase in data throughput.",
+        "<ul><li>Boilerplate Development – Built reusable, scalable React code structures to accelerate project setup and improve efficiency.</li><li>Next.js & SSR – Enhanced performance and UX using server-side rendering with Next.js.</li><li>Project Development – Developed features and maintained SNO, Journal App, ITSM, School ERP, and CRM systems.</li><li>Full-Stack Development – Implemented scalable frontend and backend solutions for end-to-end web applications.</li></ul>",
     },
     {
-      company: "Lime",
-      href: "https://li.me/",
+      company: "Fladdra",
+      href: "https://fladdra.com",
       badges: [],
-      location: "San Francisco, CA",
-      title: "Software Engineer",
-      logoUrl: "/lime.svg",
-      start: "January 2018",
-      end: "April 2018",
+      location: "Pune, India",
+      title: "React Developer",
+      logoUrl: "/fladdra.png",
+      start: "Jun 2021",
+      end: "Mar 2022",
       description:
-        "Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
-    },
-    {
-      company: "Mitre Media",
-      href: "https://mitremedia.com/",
-      badges: [],
-      location: "Toronto, ON",
-      title: "Software Engineer",
-      logoUrl: "/mitremedia.png",
-      start: "May 2017",
-      end: "August 2017",
-      description:
-        "Designed and implemented a robust password encryption and browser cookie storage system in Ruby on Rails. Leveraged the Yahoo finance API to develop the dividend.com equity screener",
+        "<ul><li>Frontend Development – Built reusable React.js components aligned with design systems and project goals.</li><li>Web Applications – Developed responsive websites and single-page applications (SPAs) using React.js.</li><li>CRM Development – Contributed to the development of scalable and maintainable CRM platforms.</li><li>React Libraries – Leveraged MUI, Redux, Axios, and other libraries to enhance application functionality and performance.</li></ul>",
     },
   ],
   education: [
     {
-      school: "Buildspace",
-      href: "https://buildspace.so",
-      degree: "s3, s4, sf1, s5",
-      logoUrl: "/buildspace.jpg",
-      start: "2023",
-      end: "2024",
-    },
-    {
-      school: "University of Waterloo",
-      href: "https://uwaterloo.ca",
-      degree: "Bachelor's Degree of Computer Science (BCS)",
-      logoUrl: "/waterloo.png",
-      start: "2016",
+      school: "Savitribai Phule Pune University",
+      href: "https://unipune.ac.in",
+      degree: "Bachelor of Science in Computer Science",
+      logoUrl: "/sppu.png",
+      start: "2018",
       end: "2021",
     },
     {
-      school: "Wilfrid Laurier University",
-      href: "https://wlu.ca",
-      degree: "Bachelor's Degree of Business Administration (BBA)",
-      logoUrl: "/laurier.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "International Baccalaureate",
-      href: "https://ibo.org",
-      degree: "IB Diploma",
-      logoUrl: "/ib.png",
-      start: "2012",
-      end: "2016",
+      school: "Dr. PA Inamdar University",
+      href: "https://painamdaruniversity.ac.in",
+      degree: "Master of Computer Applications",
+      logoUrl: "/pai.png",
+      start: "2021",
+      end: "2023",
     },
   ],
   projects: [
@@ -304,385 +304,67 @@ export const DATA = {
   ],
   hackathons: [
     {
-      title: "Hack Western 5",
-      dates: "November 23rd - 25th, 2018",
-      location: "London, Ontario",
+      title: "Zerox Cloud",
+      dates: "2024 - Present",
+      location: "Pune, India",
       description:
-        "Developed a mobile application which delivered bedtime stories to children using augmented reality.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-western.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
-      links: [],
-    },
-    {
-      title: "Hack The North",
-      dates: "September 14th - 16th, 2018",
-      location: "Waterloo, Ontario",
-      description:
-        "Developed a mobile application which delivers university campus wide events in real time to all students.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
-      links: [],
-    },
-    {
-      title: "FirstNet Public Safety Hackathon",
-      dates: "March 23rd - 24th, 2018",
-      location: "San Francisco, California",
-      description:
-        "Developed a mobile application which communcicates a victims medical data from inside an ambulance to doctors at hospital.",
-      icon: "public",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/firstnet.png",
-      links: [],
-    },
-    {
-      title: "DeveloperWeek Hackathon",
-      dates: "February 3rd - 4th, 2018",
-      location: "San Francisco, California",
-      description:
-        "Developed a web application which aggregates social media data regarding cryptocurrencies and predicts future prices.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/developer-week.jpg",
+        "Co-founded and led Zerox Cloud from idea inception to deployment as Co-Founder, Project Manager, and Tech Lead in a 7-member team. Managed full project lifecycle across planning, development, and deployment.",
+      image: "/others/zerox-cloud.png",
       links: [
         {
-          title: "Github",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/cryptotrends/cryptotrends",
-        },
-      ],
-    },
-    {
-      title: "HackDavis",
-      dates: "January 20th - 21st, 2018",
-      location: "Davis, California",
-      description:
-        "Developed a mobile application which allocates a daily carbon emission allowance to users to move towards a sustainable environment.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-davis.png",
-      win: "Best Data Hack",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg",
-      links: [
-        {
-          title: "Devpost",
+          title: "Website",
           icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://devpost.com/software/my6footprint",
-        },
-        {
-          title: "ML",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/Wallet6/my6footprint-machine-learning",
-        },
-        {
-          title: "iOS",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/Wallet6/CarbonWallet",
-        },
-        {
-          title: "Server",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/Wallet6/wallet6-server",
+          href: "https://zeroxcloud.in/",
         },
       ],
     },
     {
-      title: "ETH Waterloo",
-      dates: "October 13th - 15th, 2017",
-      location: "Waterloo, Ontario",
+      title: "Meta Mosaic",
+      dates: "2024",
+      location: "Open Source",
       description:
-        "Developed a blockchain application for doctors and pharmacists to perform trustless transactions and prevent overdosage in patients.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/eth-waterloo.png",
+        "Built and published an open-source React component library for creating beautiful, responsive mosaic grid layouts with customizable animations, zero dependencies, and full TypeScript support. Available on npm with 20+ weekly downloads.",
+      image: "/others/meta-mosaic.png",
       links: [
         {
-          title: "Organization",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/ethdocnet",
-        },
-      ],
-    },
-    {
-      title: "Hack The North",
-      dates: "September 15th - 17th, 2017",
-      location: "Waterloo, Ontario",
-      description:
-        "Developed a virtual reality application allowing users to see themselves in third person.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg",
-      links: [
-        {
-          title: "Streamer Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/justinmichaud/htn2017",
-        },
-        {
-          title: "Client Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/RTSPClient",
-        },
-      ],
-    },
-    {
-      title: "Hack The 6ix",
-      dates: "August 26th - 27th, 2017",
-      location: "Toronto, Ontario",
-      description:
-        "Developed an open platform for people shipping items to same place to combine shipping costs and save money.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-6ix.jpg",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg",
-      links: [
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/ShareShip/ShareShip",
-        },
-        {
-          title: "Site",
+          title: "npm",
           icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://share-ship.herokuapp.com/",
+          href: "https://www.npmjs.com/package/meta-mosaic",
         },
-      ],
-    },
-    {
-      title: "Stupid Hack Toronto",
-      dates: "July 23rd, 2017",
-      location: "Toronto, Ontario",
-      description:
-        "Developed a chrome extension which tracks which facebook profiles you have visited and immediately texts your girlfriend if you visited another girls page.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/stupid-hackathon.png",
-      links: [
         {
           title: "Source",
           icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/nsagirlfriend/nsagirlfriend",
+          href: "https://github.com/A-Coder02/meta-mosaic",
         },
       ],
     },
     {
-      title: "Global AI Hackathon - Toronto",
-      dates: "June 23rd - 25th, 2017",
-      location: "Toronto, Ontario",
+      title: "PixelPick",
+      dates: "2026",
+      location: "Chrome Extension",
       description:
-        "Developed a python library which can be imported to any python game and change difficulty of the game based on real time emotion of player. Uses OpenCV and webcam for facial recognition, and a custom Machine Learning Model trained on a [Kaggle Emotion Dataset](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/leaderboard) using [Tensorflow](https://www.tensorflow.org/Tensorflow) and [Keras](https://keras.io/). This project recieved 1st place prize at the Global AI Hackathon - Toronto and was also invited to demo at [NextAI Canada](https://www.nextcanada.com/next-ai).",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/global-ai-hackathon.jpg",
-      win: "1st Place Winner",
+        "Built and published a Chrome Extension color picker and eyedropper tool that captures HEX, RGB, and HSL colors from any webpage instantly. Features one-click color selection, automatic clipboard copying, and cross-website compatibility.",
+      image: "/others/pixelpick.png",
       links: [
         {
-          title: "Article",
+          title: "Chrome Web Store",
           icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://syncedreview.com/2017/06/26/global-ai-hackathon-in-toronto/",
-        },
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/TinySamosas/",
+          href: "https://chromewebstore.google.com/detail/pixelpick-%E2%80%93-pick-colors-f/fdenfadpabgjdohnedgopjcmdjcimngl",
         },
       ],
     },
     {
-      title: "McGill AI for Social Innovation Hackathon",
-      dates: "June 17th - 18th, 2017",
-      location: "Montreal, Quebec",
+      title: "Tweaks for YouTube",
+      dates: "2024",
+      location: "Chrome Extension",
       description:
-        "Developed realtime facial microexpression analyzer using AI",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/ai-for-social-good.jpg",
-      links: [],
-    },
-    {
-      title: "Open Source Circular Economy Days Hackathon",
-      dates: "June 10th, 2017",
-      location: "Toronto, Ontario",
-      description:
-        "Developed a custom admin interface for food waste startup <a href='http://genecis.co/'>Genecis</a> to manage their data and provide analytics.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/open-source-circular-economy-days.jpg",
-      win: "1st Place Winner",
+        "Developed and published a Chrome Extension that enhances the YouTube browsing experience with ad-blocking and additional UI tweaks.",
+      image: "/others/tweaks.png",
       links: [
         {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/genecis",
-        },
-      ],
-    },
-    {
-      title: "Make School's Student App Competition 2017",
-      dates: "May 19th - 21st, 2017",
-      location: "International",
-      description: "Improved PocketDoc and submitted to online competition",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/make-school-hackathon.png",
-      win: "Top 10 Finalist | Honourable Mention",
-      links: [
-        {
-          title: "Medium Article",
+          title: "Chrome Web Store",
           icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://medium.com/make-school/the-winners-of-make-schools-student-app-competition-2017-a6b0e72f190a",
-        },
-        {
-          title: "Devpost",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://devpost.com/software/pocketdoc-react-native",
-        },
-        {
-          title: "YouTube",
-          icon: <Icons.youtube className="h-4 w-4" />,
-          href: "https://www.youtube.com/watch?v=XwFdn5Rmx68",
-        },
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/pocketdoc-react-native",
-        },
-      ],
-    },
-    {
-      title: "HackMining",
-      dates: "May 12th - 14th, 2017",
-      location: "Toronto, Ontario",
-      description: "Developed neural network to optimize a mining process",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-mining.png",
-      links: [],
-    },
-    {
-      title: "Waterloo Equithon",
-      dates: "May 5th - 7th, 2017",
-      location: "Waterloo, Ontario",
-      description:
-        "Developed Pocketdoc, an app in which you take a picture of a physical wound, and the app returns common solutions or cures to the injuries or diseases.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/waterloo-equithon.png",
-      links: [
-        {
-          title: "Devpost",
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://devpost.com/software/pocketdoc-react-native",
-        },
-        {
-          title: "YouTube",
-          icon: <Icons.youtube className="h-4 w-4" />,
-          href: "https://www.youtube.com/watch?v=XwFdn5Rmx68",
-        },
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/pocketdoc-react-native",
-        },
-      ],
-    },
-    {
-      title: "SpaceApps Waterloo",
-      dates: "April 28th - 30th, 2017",
-      location: "Waterloo, Ontario",
-      description:
-        "Developed Earthwatch, a web application which allows users in a plane to virtually see important points of interest about the world below them. They can even choose to fly away from their route and then fly back if they choose. Special thanks to CesiumJS for providing open source world and plane models.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/space-apps.png",
-      links: [
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/earthwatch",
-        },
-      ],
-    },
-    {
-      title: "MHacks 9",
-      dates: "March 24th - 26th, 2017",
-      location: "Ann Arbor, Michigan",
-      description:
-        "Developed Super Graphic Air Traffic, a VR website made to introduce people to the world of air traffic controlling. This project was built completely using THREE.js as well as a node backend server.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/mhacks-9.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg",
-      links: [
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/threejs-planes",
-        },
-      ],
-    },
-    {
-      title: "StartHacks I",
-      dates: "March 4th - 5th, 2017",
-      location: "Waterloo, Ontario",
-      description:
-        "Developed at StartHacks 2017, Recipic is a mobile app which allows you to take pictures of ingredients around your house, and it will recognize those ingredients using ClarifAI image recognition API and return possible recipes to make. Recipic recieved 1st place at the hackathon for best pitch and hack.",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/starthacks.png",
-      win: "1st Place Winner",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg",
-      links: [
-        {
-          title: "Source (Mobile)",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/mattBlackDesign/recipic-ionic",
-        },
-        {
-          title: "Source (Server)",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/mattBlackDesign/recipic-rails",
-        },
-      ],
-    },
-    {
-      title: "QHacks II",
-      dates: "February 3rd - 5th, 2017",
-      location: "Kingston, Ontario",
-      description:
-        "Developed a mobile game which enables city-wide manhunt with random lobbies",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/qhacks.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg",
-      links: [
-        {
-          title: "Source (Mobile)",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/dillionverma/human-huntr-react-native",
-        },
-        {
-          title: "Source (API)",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/mattBlackDesign/human-huntr-rails",
-        },
-      ],
-    },
-    {
-      title: "Terrible Hacks V",
-      dates: "November 26th, 2016",
-      location: "Waterloo, Ontario",
-      description:
-        "Developed a mock of Windows 11 with interesting notifications and functionality",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/terrible-hacks-v.png",
-      links: [
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/justinmichaud/TerribleHacks2016-Windows11",
-        },
-      ],
-    },
-    {
-      title: "Portal Hackathon",
-      dates: "October 29, 2016",
-      location: "Kingston, Ontario",
-      description:
-        "Developed an internal widget for uploading assignments using Waterloo's portal app",
-      image:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/portal-hackathon.png",
-      links: [
-        {
-          title: "Source",
-          icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/UWPortalSDK/crowmark",
+          href: "https://chromewebstore.google.com/detail/tweaks-for-youtube-%E2%80%93-ad-b/mnampdjhbhnacgehfedplboonojmnibo",
         },
       ],
     },
