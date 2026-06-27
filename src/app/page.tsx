@@ -148,9 +148,33 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <i className="text-muted-foreground text-center pt-8 block">
-            Remains to add...
-          </i>
+          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+            <div className="relative max-w-[800px] mx-auto mt-8">
+              <div className="relative overflow-hidden rounded-2xl border border-dashed border-muted-foreground/25 bg-gradient-to-br from-muted/30 via-background to-muted/30 p-10">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
+                <div className="relative flex flex-col items-center gap-4 text-center">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block h-2 w-2 rounded-full bg-primary/60 animate-pulse" />
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary/40 animate-pulse [animation-delay:0.3s]" />
+                    <span className="inline-block h-2 w-2 rounded-full bg-primary/60 animate-pulse [animation-delay:0.6s]" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-lg font-semibold tracking-tight bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text">
+                      Projects Coming Soon
+                    </p>
+                    <p className="text-sm text-muted-foreground max-w-md">
+                      Exciting projects are in the works and will be showcased here shortly. Stay tuned!
+                    </p>
+                  </div>
+                  <div className="flex gap-3 mt-2">
+                    <span className="h-1 w-8 rounded-full bg-primary/20 animate-pulse" />
+                    <span className="h-1 w-12 rounded-full bg-primary/15 animate-pulse [animation-delay:0.2s]" />
+                    <span className="h-1 w-6 rounded-full bg-primary/20 animate-pulse [animation-delay:0.4s]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </BlurFade>
           {/* <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
             {DATA.projects.map((project, id) => (
               <BlurFade
