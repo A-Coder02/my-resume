@@ -44,16 +44,24 @@ export const ResumeCard = ({
       className="block cursor-pointer"
       onClick={handleClick}
     >
-      <Card className="flex">
+      <Card className="flex bg-transparent shadow-none border-none">
         <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain"
-            />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
-          </Avatar>
+          <a
+            href={href || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`Visit ${altText} website`}
+          >
+            <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground cursor-pointer">
+              <AvatarImage
+                src={logoUrl}
+                alt={altText}
+                className="object-contain"
+              />
+              <AvatarFallback>{altText[0]}</AvatarFallback>
+            </Avatar>
+          </a>
         </div>
         <div className="flex-grow ml-4 items-center flex-col group">
           <CardHeader>
@@ -73,12 +81,14 @@ export const ResumeCard = ({
                     ))}
                   </span>
                 )}
-                <ChevronRightIcon
-                  className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
-                  )}
-                />
+                {description && (
+                  <ChevronRightIcon
+                    className={cn(
+                      "size-4 translate-x-0 transform transition-all duration-300 ease-out opacity-100 sm:opacity-0 sm:group-hover:translate-x-1 sm:group-hover:opacity-100",
+                      isExpanded ? "rotate-90" : "rotate-0"
+                    )}
+                  />
+                )}
               </h3>
               <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
                 {period}

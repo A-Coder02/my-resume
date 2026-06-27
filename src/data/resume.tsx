@@ -86,6 +86,48 @@ export const DATA = {
     },
   },
 
+  testimonials: [
+    {
+      name: "Umar Shaikh",
+      image: "/testimonials/umar.png",
+      role: "Building Systems That Create Opportunities",
+      relation: "Managed Arbaj directly",
+      org: "Pronttera",
+      orgLogo: "/pronttera.png",
+      date: "May 5, 2025",
+      body: "I had the pleasure of working with Arbaj at Pronttera, where he was a key contributor to our React Native application development. His technical expertise, especially in building cross-platform mobile apps, was instrumental in delivering a high-quality, user-friendly product. Arbaj consistently demonstrated a deep understanding of React Native and related technologies, and he approached every challenge with a calm, solution-focused mindset. He's not only technically strong but also a great team player—always approachable, supportive, and eager to share knowledge. I highly recommend Arbaj for any team looking for a skilled and dependable mobile developer.",
+    },
+    {
+      name: "Abhishek Katore",
+      image: "/testimonials/abhishek.png",
+      role: "Frontend Developer | React | JavaScript | Redux",
+      relation: "Worked with Arbaj on the same team",
+      org: "HTS Tech Solutions",
+      orgLogo: "/hts.png",
+      date: "June 20, 2025",
+      body: "I had the pleasure of working with Arbaj, and I can confidently say he is one of the most knowledgeable React developers I've worked with. His deep understanding of React and frontend architecture consistently impressed the team. During my initial days, Arbaj was incredibly supportive, he guided me patiently and helped me get up to speed. He's a true team player, always willing to lend a hand or share insights. Not only did he contribute technically, but he also took the lead when needed and drove the team forward with clarity and confidence.",
+    },
+    {
+      name: "Pankaj Agade",
+      image: "/testimonials/pankaj.png",
+      role: "Senior Software Developer | Full Stack Developer | App Development",
+      relation: "Managed Arbaj directly",
+      org: "HTS Tech Solutions",
+      orgLogo: "/hts.png",
+      date: "June 19, 2025",
+      body: "I have worked with Arbaj and i observed him to be a hardworking and sincere person. He is always ready to help, learns quickly, and handles tasks with full dedication. He is a great team player and always keeps a positive attitude. I truly enjoyed working with him and would happily recommend him for any role or opportunity.",
+    },
+    {
+      name: "Uttam Shendage",
+      image: "/testimonials/uttam.png",
+      role: "Senior Full-Stack Developer | Angular • ASP.NET Core • C# • SQL Server",
+      relation: "Worked with Arbaj on different teams",
+      org: "Senwell Solutions",
+      date: "May 5, 2025",
+      body: "Arbaj stands out for his deep understanding of JavaScript and ability to craft clean, logical code that makes complex functionalities seem effortless on the front end.",
+    },
+  ],
+
   work: [
     {
       company: "Pronttera",
@@ -101,7 +143,7 @@ export const DATA = {
     },
     {
       company: "10Xers Labs",
-      href: "https://10xerslabs.com",
+      href: "https://consistentinnovation.co/",
       badges: [],
       location: "Remote",
       title: "Full Stack Engineer",
@@ -112,8 +154,8 @@ export const DATA = {
         "<ul><li><b>GrowReach</b> – Built the GrowReach web app (<a href='https://growreach.app/'>growreach.app</a>) and its companion Chrome Extension (<a href='https://chromewebstore.google.com/detail/cifejbakemcfojncacbdakgkbhocglca'>Chrome Web Store</a>); leveraged Cursor with Figma MCP to accelerate UI development.</li><li><b>GrowEasy</b> – Implemented features and maintained a Salon Management application, contributing on the frontend side (<a href='https://groweasy.com/'>groweasy.com</a>).</li><li><b>Ajerly</b> – Integrated WASL feature including WASL status tracking and ongoing maintenance for a car rental application (<a href='https://ajerlycarrental.com/'>ajerlycarrental.com</a>).</li><li><b>Jasmine</b> – Developed a Vue.js-based trading application (<a href='https://www.jasminetrades.com/'>jasminetrades.com</a>), working on the trade order flow for a smooth and reliable trading experience.</li></ul>",
     },
     {
-      company: "HTS",
-      href: "https://hts.com",
+      company: "HTS Tech Solutions",
+      href: "https://www.htstechsolutions.com/",
       badges: [],
       location: "Pune, India",
       title: "Senior Software Developer",

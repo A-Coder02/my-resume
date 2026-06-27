@@ -6,6 +6,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { WorkExperience } from "@/components/work-experience";
+import { Testimonials } from "@/components/testimonials";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -60,6 +61,16 @@ export default function Page() {
       </section>
       <section id="work">
         <WorkExperience work={DATA.work} />
+      </section>
+      <section id="testimonials">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <h2 className="text-xl font-bold">What People Say</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 8}>
+            <Testimonials testimonials={DATA.testimonials} />
+          </BlurFade>
+        </div>
       </section>
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">

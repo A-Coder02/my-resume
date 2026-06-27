@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dlx *)",
+      "Bash(npx shadcn@latest add @magicui/marquee)",
+      "Bash(npx shadcn@latest add drawer)",
+      "Bash(npm install *)",
+      "Bash(npx shadcn@latest add dialog)"
+    ]
+  }
+}
