@@ -11,7 +11,8 @@
       "Skill(run:*)",
       "Bash(curl -s http://localhost:3000)",
       "Bash(pnpm install *)",
-      "Bash(npx pnpm *)"
+      "Bash(npx pnpm *)",
+      "Bash(grep -nA3 -iE \"overflow|html|body|scroll\")"
     ]
   }
 }

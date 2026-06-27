@@ -8,10 +8,12 @@ export const DATA = {
   location: "Pune, India",
   locationLink: "https://www.google.com/maps/place/pune",
   description:
-    "Full Stack Developer & Technical Lead. Building scalable products with React, Node.js, and modern tech. Passionate about clean code and shipping fast.",
+    "Full Stack Developer & Technical Lead. Building scalable products with clean code and shipping fast.",
   summary:
     "Full Stack Developer and Technical Lead at Pronttera, leading development of AI-powered products including PayFace (facial recognition payment) and Rixura (medical imaging). Previously at 10Xers Labs and HTS, where I led frontend teams and built high-impact features for B2C platforms. Experienced with React, Next.js, Node.js, Vue.js, React Native, and modern web technologies. Passionate about clean code, mentoring developers, and building products that matter.",
   avatarUrl: "/me.png",
+  resumeUrl:
+    "https://drive.google.com/file/d/1hbz_3M5KZrHPco1RDVAdSAuTL7zPHRgZ/view?usp=sharing",
   skills: [
     "ReactJS",
     "React Native",

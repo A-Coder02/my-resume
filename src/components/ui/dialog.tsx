@@ -17,15 +17,7 @@ const DialogClose = DialogPrimitive.Close
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
->(({ className, ...props }, ref) => {
-  React.useEffect(() => {
-    document.documentElement.style.overflow = 'hidden'
-    return () => {
-      document.documentElement.style.overflow = ''
-    }
-  }, [])
-
-  return (
+>(({ className, ...props }, ref) => (
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
@@ -34,8 +26,7 @@ const DialogOverlay = React.forwardRef<
       )}
       {...props}
     />
-  )
-})
+))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
 const DialogContent = React.forwardRef<
