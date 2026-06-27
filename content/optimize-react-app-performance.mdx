@@ -1,0 +1,199 @@
+---
+title: "Stop Wrapping Everything in useMemo: A Practical Guide to React Performance That Actually Moves the Needle"
+publishedAt: "2025-09-22"
+summary: "After profiling dozens of production React apps, I've learned that most 'optimizations' are theater. Here's the order I actually attack performance problems in — measure first, fix the render waterfall, then memoize what's left — with real code and the traps I fell into."
+image: "https://img.youtube.com/vi/7opz5TfYyws/maxresdefault.jpg"
+---
+
+I want to start with a confession, because it's probably your story too.
+
+For about two years I wrapped *everything* in `useMemo` and `useCallback`. Every function. Every derived value. I genuinely believed I was being a responsible, "performance-conscious" engineer. My components looked like they'd been through a memoization car wash. And you know what? They weren't faster. Some were measurably *slower*. I had spent enormous effort making my code harder to read while handing React more work to do, not less.
+
+The turning point came when I finally opened the React Profiler on a sluggish dashboard at work instead of guessing. The slow part wasn't a missing `useMemo`. It was a single context provider re-rendering half the app on every keystroke. No amount of memoization sugar would have fixed it — the problem was *architecture*, not arithmetic.
+
+This post is everything that lesson taught me, in the order I now actually use it. If you read one performance article this year, I'd love it to be this one — not because it has secret tricks, but because it'll stop you from wasting time on the wrong ones.
+
+## The one rule that governs all the others
+
+> **Measure first. Always. No exceptions.**
+
+I'm putting this at the top because it's the rule I broke for two years and the rule that makes every other section in this post optional.
+
+Your intuition about what's slow in a React app is, statistically, wrong. Mine was. The bottleneck is almost never where it "feels" like it should be. So before you change a single line, open the [React DevTools Profiler](https://react.dev/learn/react-developer-tools), hit record, do the slow interaction, and *look*. The flame graph will tell you exactly which components rendered, how often, and how long they took.
+
+If you want a clear, no-fluff walkthrough of profiling and what these hooks actually do before we dig in, this one is worth fifteen minutes:
+
+[![Deep dive into useMemo and React performance optimization](https://img.youtube.com/vi/7opz5TfYyws/hqdefault.jpg)](https://youtu.be/7opz5TfYyws)
+
+*▶ A solid deep-dive on `useMemo` and where it genuinely helps — watch this before you sprinkle it everywhere.*
+
+Everything below assumes you've measured and *confirmed* a problem. Optimizing without a profiler is just refactoring with extra confidence and no evidence.
+
+## Layer 1: Understand *why* React re-renders (it's simpler than the memes suggest)
+
+Half the bad advice on the internet comes from misunderstanding this, so let's nail it. A component re-renders when:
+
+1. Its **state** changes.
+2. Its **props** change.
+3. Its **parent** re-renders.
+
+That third one is the killer. **A parent re-rendering re-renders all its children by default** — even children whose props didn't change. This is fine; React is fast. Rendering is not the same as touching the DOM. But when a high-up component re-renders frequently and drags a heavy subtree along for the ride, you feel it.
+
+So the real question is never "how do I memoize this component?" It's **"why is this component rendering this often, and can I stop the cause?"** Fix the cause and you delete the need for memoization entirely.
+
+## Layer 2: Fix the render waterfall before you reach for any hook
+
+This is where the biggest wins live, and it's the layer everyone skips because it requires thinking instead of typing `useMemo`.
+
+### Move state down
+
+The most common performance bug I find: a piece of state lives way too high in the tree. Someone put a form input's value in a top-level component, so every keystroke re-renders the entire page.
+
+The fix isn't to memoize the page. It's to **push the state down** to the smallest component that needs it.
+
+```jsx
+// ❌ Every keystroke re-renders <Dashboard /> and everything under it
+function Dashboard() {
+  const [search, setSearch] = useState("");
+  return (
+    <>
+      <SearchBox value={search} onChange={setSearch} />
+      <ExpensiveChart />     {/* re-renders on every keystroke for no reason */}
+      <HugeDataTable />      {/* this too */}
+    </>
+  );
+}
+
+// ✅ Isolate the state where it's actually used
+function Dashboard() {
+  return (
+    <>
+      <SearchSection />      {/* owns its own search state */}
+      <ExpensiveChart />     {/* now blissfully unaware of typing */}
+      <HugeDataTable />
+    </>
+  );
+}
+```
+
+Zero memoization. Zero new dependencies. The expensive components simply stopped hearing about the typing. This single pattern has fixed more "React is slow" complaints for me than every hook combined.
+
+### Lift content up via `children` ("the component sandwich")
+
+A subtler trick. If a component re-renders often (say, it tracks mouse position) but wraps expensive content, pass that content in as `children`. React won't re-render `children` just because the wrapper's state changed — they were created in a different, calmer render.
+
+```jsx
+// The expensive tree is created by the parent and passed through,
+// so MouseTracker's state updates don't re-render it.
+<MouseTracker>
+  <ExpensiveThing />
+</MouseTracker>
+```
+
+### Don't create new objects/arrays in the render path you care about
+
+Passing `style={{ margin: 8 }}` or `items={data.filter(...)}` inline creates a brand-new reference every render. For plain DOM elements this is harmless. But feed it to a memoized child or a `useEffect` dependency array and you've quietly broken the optimization you were relying on.
+
+## Layer 3: *Now* memoize — surgically, with a reason
+
+You've measured. You've fixed the waterfall. There's a genuinely expensive bit left. *This* is when the memoization tools come out — not before.
+
+### `React.memo` — skip re-rendering a child when its props are unchanged
+
+```jsx
+const ExpensiveChart = React.memo(function ExpensiveChart({ data }) {
+  // heavy rendering work
+  return <Chart data={data} />;
+});
+```
+
+`React.memo` does a shallow prop comparison and bails out of the render if nothing changed. The catch — and it's the one everyone trips on — **it only works if the props are actually stable.** Pass a fresh inline object or function as a prop and `memo` compares two different references, sees "changed," and re-renders anyway. You did the work for nothing. Which leads directly to:
+
+### `useCallback` — keep a function's identity stable
+
+`useCallback`'s *real* job isn't "caching a function for speed." It's keeping the **same function reference** across renders so a memoized child or an effect dependency doesn't see a phantom change.
+
+```jsx
+// Without useCallback, handleSelect is new every render,
+// which would defeat the React.memo on <Row />.
+const handleSelect = useCallback((id) => {
+  setSelected(id);
+}, []);
+```
+
+The mental model that finally made it click for me: **`useCallback` exists to make `React.memo` and `useEffect` work as intended.** Using it anywhere those two aren't downstream is usually pointless ceremony.
+
+### `useMemo` — cache an expensive computation
+
+```jsx
+// Only re-sorts when `rows` or `sortKey` actually change.
+const sortedRows = useMemo(
+  () => [...rows].sort((a, b) => compare(a[sortKey], b[sortKey])),
+  [rows, sortKey],
+);
+```
+
+The honest rule from [Josh Comeau's excellent breakdown](https://www.joshwcomeau.com/react/usememo-and-usecallback/) and my own profiling: `useMemo` earns its keep for *genuinely* expensive calculations (sorting thousands of rows, heavy data transforms) or for preserving a referential identity that something downstream depends on. Wrapping `const total = a + b` in `useMemo` is slower than just computing `a + b` — you added a dependency array, a cache lookup, and a closure to save an addition.
+
+> **My field-tested heuristic:** if you can't name *which* `React.memo`, `useEffect`, or expensive loop a memo is protecting, delete it.
+
+## Layer 4: The structural wins (often bigger than every hook combined)
+
+### Virtualize long lists
+
+Rendering 10,000 table rows the browser can't even show is a self-inflicted wound. Render only what's on screen with [`@tanstack/react-virtual`](https://tanstack.com/virtual). Going from "render everything" to "render the visible 20 rows" routinely turns a 2-second freeze into an instant one. No memoization touches a problem like this.
+
+### Code-split with `lazy` + `Suspense`
+
+Your users on the login page don't need the admin dashboard's chart library in their initial bundle. Split it.
+
+```jsx
+import { lazy, Suspense } from "react";
+const Analytics = lazy(() => import("./Analytics"));
+
+<Suspense fallback={<Spinner />}>
+  <Analytics />
+</Suspense>
+```
+
+Smaller initial bundle, faster first paint. This is the optimization your users *feel* before they ever interact with anything.
+
+### Debounce the expensive, throttle the frequent
+
+Search-as-you-type that hits an API on every keystroke isn't a React problem, but it's the kind of thing the Profiler surfaces. Debounce the input; you'll cut renders *and* network calls.
+
+## Layer 5: Let the compiler do the boring part
+
+Here's the plot twist that quietly makes half this article obsolete — and I mean that as good news. The **React Compiler** reached stable in late 2025, and it changes the deal entirely.
+
+It analyzes your components at build time and **inserts memoization automatically, exactly where it's needed** — no manual `useMemo`, `useCallback`, or `React.memo` annotations. The thing I spent two years doing badly by hand, the compiler now does correctly, everywhere, for free.
+
+My take after using it: it doesn't make the *thinking* in Layers 1–4 obsolete — moving state down, virtualizing lists, and code-splitting are still on you, because they're architecture, not arithmetic. But it absolutely retires the reflex of hand-wrapping every value. If you're on a recent React version, turn the compiler on and delete a small mountain of memoization ceremony. Your future self reading the code will thank you.
+
+## The checklist I actually run, in order
+
+1. **Open the Profiler.** Confirm there's a real problem and find *where* it is. Don't skip this. Ever.
+2. **Can I move state down** so fewer components re-render? Do that first.
+3. **Can I restructure** with `children` or composition to dodge the re-render entirely?
+4. **Is a long list the issue?** Virtualize it.
+5. **Is the bundle the issue?** Code-split it.
+6. **Is there a genuinely expensive computation or a broken `React.memo`?** *Now* reach for `useMemo` / `useCallback` — surgically, with a named reason.
+7. **Turn on the React Compiler** and stop hand-memoizing the trivial stuff.
+
+Notice that the memoization hooks — the thing most articles open with — show up at step 6. That ordering is the whole point.
+
+## What I'd tell my younger, memo-happy self
+
+Performance work in React is mostly *removing* causes, not *adding* caches. The fastest re-render is the one that never happens because you put the state in the right place. Memoization is a real tool, but it's a scalpel for the last mile — not the bulldozer you lead with.
+
+Measure. Fix the structure. Memoize what's left. Let the compiler handle the rest. Do it in that order and you'll spend less time optimizing and more time shipping — with code that's actually *easier* to read than the over-memoized mess I used to write.
+
+---
+
+*I've been building and leading React, React Native, and Next.js teams for years — most recently as a Technical Lead shipping AI-powered products. If this resonated, or you want to argue about whether `useCallback` is overrated, find me on [GitHub](https://github.com/A-Coder02), [LinkedIn](https://www.linkedin.com/in/arbaj-dev/), or [X](https://x.com/arbajansari_).*
+
+**Worth bookmarking:**
+
+- [Understanding useMemo and useCallback — Josh W. Comeau](https://www.joshwcomeau.com/react/usememo-and-usecallback/)
+- [React Compiler — official docs](https://react.dev/learn/react-compiler)
+- [TanStack Virtual](https://tanstack.com/virtual)

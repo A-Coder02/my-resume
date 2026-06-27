@@ -120,9 +120,9 @@ function TestimonialCard({
 function TestimonialDetails({ testimonial }: { testimonial: Testimonial }) {
   return (
     <>
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center gap-3 pr-12">
         <img
-          className="size-12 rounded-full border object-cover"
+          className="size-12 shrink-0 rounded-full border object-cover"
           alt={testimonial.name}
           src={testimonial.image}
         />
@@ -190,7 +190,7 @@ function TestimonialModal({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="max-h-[85vh]">
         {testimonial && (
-          <div className="mx-auto w-full max-w-lg overflow-y-auto px-5 pb-8">
+          <div className="relative mx-auto w-full max-w-lg overflow-y-auto px-5 pb-8">
             <DrawerTitle className="sr-only">
               {testimonial.name}&apos;s testimonial
             </DrawerTitle>

@@ -5,7 +5,11 @@
       "Bash(npx shadcn@latest add @magicui/marquee)",
       "Bash(npx shadcn@latest add drawer)",
       "Bash(npm install *)",
-      "Bash(npx shadcn@latest add dialog)"
+      "Bash(npx shadcn@latest add dialog)",
+      "Bash(node -e ' *)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(curl -s http://localhost:3000)"
     ]
   }
 }
