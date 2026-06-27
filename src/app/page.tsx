@@ -5,11 +5,13 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { WorkExperience } from "@/components/work-experience";
 import { Testimonials } from "@/components/testimonials";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { FileText } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -47,6 +49,18 @@ export default function Page() {
               </Avatar>
             </BlurFade>
           </div>
+          <BlurFade delay={BLUR_FADE_DELAY * 2}>
+            <Button asChild size="sm" className="gap-2">
+              <Link
+                href={DATA.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="size-4" />
+                View Resume
+              </Link>
+            </Button>
+          </BlurFade>
         </div>
       </section>
       <section id="about">
