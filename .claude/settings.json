@@ -9,7 +9,9 @@
       "Bash(node -e ' *)",
       "Skill(run)",
       "Skill(run:*)",
-      "Bash(curl -s http://localhost:3000)"
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(pnpm install *)",
+      "Bash(npx pnpm *)"
     ]
   }
 }
